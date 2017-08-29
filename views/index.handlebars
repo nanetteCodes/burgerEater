@@ -1,0 +1,64 @@
+<div class="container">
+	<div class="jumbotron">
+		<img src="/assets/images/brrgrr.png" id="brrgrr">
+		<header class = "head"> Eat-Da-Burger! </header>
+	</div>
+
+  <div class="col-md-10 col-md-offset-1">
+		<p class="lead"> Enter a burger you want to eat & click the submit button. </p>
+
+		{{!-- add burgers --}}
+		<form class="create-update-form add" action="burgers/create" method="POST">
+
+			<div class="form-group">
+				<textarea class="form-control input-lg" type="text" name="b_name" rows="3"> </textarea>
+			</div>
+
+			<button class="btn btn-warning btn-lg" type="submit">ADD BURGER!</button>
+		</form>
+	</div>
+
+	{{!-- uneaten burgers list --}}
+	<div class="row">
+		<div class="col-md-4 col-md-offset-1">
+			<div class="panel-panel default">
+				<ul class="list-group">
+				{{#each burgers}}
+					{{#unless this.devoured}}
+					<li class="list-group-item">
+						<div class="input-group">
+							<p class="lead"> {{this.burger_name}} </p>
+							<span class="input-group-btn">
+								<form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+									<input type="hidden" name="devoured" value="true">
+									<button class="btn btn-warning btn-lg" type="submit"> DEVOUR IT! </button>
+								</form>
+							</span>
+						</div>
+					</li>
+					{{/unless}}
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+
+
+		{{!-- eaten burger list --}}
+	<div class="row">
+		<div class="col-md-4 col-md-offset-2">
+			<div class="panel panel-default">
+				<ul class="list-group">
+				{{#each burgers}}
+					{{#if this.devoured}}
+					<li class="list-group-item">
+						<p class="lead">{{this.burger_name}} </p>
+					</li>
+					{{/if}}
+				{{/each}}
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+</div>

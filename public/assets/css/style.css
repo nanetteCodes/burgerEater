@@ -1,0 +1,28 @@
+* {
+	text-align: center;
+}
+body{
+	background-color: #f6dd60;
+	font-family: "Helvetica Neue",Helvetica,sans-serif;
+	font-size: 16px;
+	color: #492d18;
+}
+
+#brrgrr{
+ padding: 0;
+ width:300px;
+}
+
+.jumbotron {
+	background-color: #f6dd60;
+  margin-bottom: 5px;
+}
+
+header{
+  font-family: 'Baloo Bhaijaan', Arial, sans-serif;
+  font-size: 100px;
+	color:#492d18;
+}
+.add{
+	margin-bottom: 20px;
+}
